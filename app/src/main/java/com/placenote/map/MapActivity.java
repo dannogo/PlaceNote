@@ -1,6 +1,7 @@
 package com.placenote.map;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,7 +16,7 @@ import com.placenote.R;
 import com.placenote.ViewModelFactory;
 import com.placenote.util.ActivityUtils;
 
-public class MapActivity extends AppCompatActivity {
+public class MapActivity extends AppCompatActivity implements MapNavigator{
 
     private MapViewModel mMapViewModel;
 
@@ -51,4 +52,13 @@ public class MapActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
+    @Override
+    public void openNoteDetails(String taskId) {
+        Intent intent = new Intent(this, );
+    }
+
+    @Override
+    public void openCreateNote() {
+
+    }
 }

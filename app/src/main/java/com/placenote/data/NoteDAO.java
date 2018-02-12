@@ -1,0 +1,37 @@
+package com.placenote.data;
+
+import android.arch.lifecycle.LiveData;
+import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
+import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
+import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
+
+import java.util.List;
+
+/**
+ * Created by OlehLiskovych on 2/12/18.
+ */
+
+@Dao
+public interface NoteDAO {
+
+    @Query("select * from products")
+    LiveData<List<Note>> getAllNotes();
+
+    @Query("select * from notes where id=:id")
+    LiveData<Note> findNoteById(int noteId);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insert(Note... notes);
+
+    @Update
+    void update(Note... notes);
+
+    @Delete
+    void delete(Note... notes);
+
+
+
+}
