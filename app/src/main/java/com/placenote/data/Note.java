@@ -1,8 +1,6 @@
 package com.placenote.data;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,7 +14,7 @@ public final class Note {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
-    private final String id;
+    private final int id;
 
     @NonNull
     private final String title;
@@ -26,4 +24,14 @@ public final class Note {
 
     @NonNull
     private final boolean isActive;
+
+    public Note(@NonNull int id, @NonNull String title,
+                @Nullable String description, @NonNull boolean isActive) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.isActive = isActive;
+    }
+
+
 }

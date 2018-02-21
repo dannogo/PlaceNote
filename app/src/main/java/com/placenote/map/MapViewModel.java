@@ -12,23 +12,23 @@ import com.placenote.data.NotesRepository;
 
 public class MapViewModel extends AndroidViewModel {
 
-    private final Context mContext; // Must be application context
+    private final Context context; // Must be application context
 
-    private final NotesRepository mNotesRepository;
+    private final NotesRepository notesRepository;
 
     public MapViewModel(Application application, NotesRepository repository) {
         super(application);
-        mContext = application.getApplicationContext();
-        mNotesRepository = repository;
+        context = application.getApplicationContext();
+        notesRepository = repository;
 
         // Set initial state
     }
 
     public void start() {
-        loadTasks();
+        loadNotes();
     }
 
-    private void loadTasks() {
+    private void loadNotes() {
 
     }
 
