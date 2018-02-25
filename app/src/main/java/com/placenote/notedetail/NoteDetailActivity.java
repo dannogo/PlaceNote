@@ -12,6 +12,6 @@ public class NoteDetailActivity extends AppCompatActivity implements NoteDetailN
     public static final int DELETE_RESULT_OK = RESULT_FIRST_USER + 2;
     public static final int EDIT_RESULT_OK = RESULT_FIRST_USER + 3;
 
-    private static
+//    private static
 
 }

@@ -3,8 +3,8 @@ package com.placenote.map;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+//import android.support.design.widget.FloatingActionButton;
+//import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -23,6 +23,7 @@ public class MapActivity extends AppCompatActivity implements MapNavigator{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_map);
 
         setupToolbar();
         setupViewFragment();
@@ -38,10 +39,10 @@ public class MapActivity extends AppCompatActivity implements MapNavigator{
     }
 
     private void setupViewFragment() {
-        MapFragment mapFragment = (MapFragment) getSupportFragmentManager().findFragmentById(R.id.content_fragment);
+        MapFragment mapFragment = (MapFragment) getSupportFragmentManager().findFragmentById(R.id.map_fragment);
         if (mapFragment == null) {
             mapFragment = MapFragment.newInstance();
-            ActivityUtils.replaceFragmentInActivity(getSupportFragmentManager(), mapFragment, R.id.content_fragment);
+            ActivityUtils.replaceFragmentInActivity(getSupportFragmentManager(), mapFragment, R.id.map_fragment);
         }
     }
 
@@ -54,7 +55,7 @@ public class MapActivity extends AppCompatActivity implements MapNavigator{
 
     @Override
     public void openNoteDetails(String taskId) {
-        Intent intent = new Intent(this, );
+//        Intent intent = new Intent(this, );
     }
 
     @Override

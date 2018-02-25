@@ -18,8 +18,8 @@ public class NoteDetailViewModel extends AndroidViewModel {
         mNotesRepository = repository;
     }
 
-    public void deleteNote() {
-        if ()
-    }
+//    public void deleteNote() {
+//        if ()
+//    }
 
 }

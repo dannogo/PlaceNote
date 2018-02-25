@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.placenote.R;
-import com.placenote.databinding.FragmentMapBinding;
 
 /**
  * Created by OlehLiskovych on 2/12/18.
@@ -18,7 +17,6 @@ public class MapFragment extends Fragment {
 
     private MapViewModel mMapViewModel;
     // move fab
-    private FragmentMapBinding mFragmentMapBinding;
 
     public MapFragment() {}
 
@@ -42,7 +40,7 @@ public class MapFragment extends Fragment {
     }
 
     private void setupFab(){
-        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fragment_map_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

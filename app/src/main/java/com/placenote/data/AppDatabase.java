@@ -12,25 +12,34 @@ import com.placenote.util.TransformationUtils;
  * Created by OlehLiskovych on 2/12/18.
  */
 
-@Database(entities = {Note.class}, version = 1)
+@Database(entities = {Note.class}, version = 1, exportSchema = false)
 @TypeConverters(TransformationUtils.class)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static volatile AppDatabase sInstance;
 
-    public static final String DATABASE_NAME = "place-note-db";
+    private static final String DATABASE_NAME = "place-note-db";
 
     public abstract NoteDAO noteDAO();
 
     public static AppDatabase getInstance(final Context context) {
         synchronized (AppDatabase.class) {
             if (sInstance == null) {
-                sInstance = Room.databaseBuilder(context.getApplicationContext(),
-                        AppDatabase.class, DATABASE_NAME)
-                        .build();
+                sInstance = create(context, false);
             }
             return sInstance;
         }
+    }
+
+    private static AppDatabase create(Context context, boolean memoryOnly) {
+        RoomDatabase.Builder<AppDatabase> builder;
+
+        if (memoryOnly) {
+            builder = Room.inMemoryDatabaseBuilder(context.getApplicationContext(), AppDatabase.class);
+        } else {
+            builder = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, DATABASE_NAME);
+        }
+        return builder.build();
     }
 
 }

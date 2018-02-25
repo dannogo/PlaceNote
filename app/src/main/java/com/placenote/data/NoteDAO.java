@@ -17,11 +17,11 @@ import java.util.List;
 @Dao
 public interface NoteDAO {
 
-    @Query("select * from products")
+    @Query("select * from notes")
     LiveData<List<Note>> getAllNotes();
 
     @Query("select * from notes where id=:id")
-    LiveData<Note> findNoteById(int noteId);
+    LiveData<Note> findNoteById(int id);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Note... notes);
