@@ -1,17 +1,16 @@
 package com.placenote.map;
 
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.placenote.R;
-
-/**
- * Created by OlehLiskovych on 2/12/18.
- */
 
 public class MapFragment extends Fragment {
 
@@ -28,6 +27,16 @@ public class MapFragment extends Fragment {
     public void onResume() {
         super.onResume();
         mMapViewModel.start();
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_map, container, false);
+
+        mMapViewModel = MapActivity.obtainViewModel(getActivity());
+
+        return root;
     }
 
     @Override

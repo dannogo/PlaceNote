@@ -26,10 +26,3 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-ext {
-
-    // Architecture Components dependencies
-    roomVersion = "1.0.0"
-    archLifecycleVersion = "1.0.0-rc1"
-    butterKnifeVersion = "8.8.1"
-}
